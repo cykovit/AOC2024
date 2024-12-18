@@ -1,11 +1,11 @@
 with open('input_day18.txt') as file:
     falling_bytes = [int(line.split(',')[0]) + 1j * int(line.split(',')[1]) for line in file.readlines()]
 
-def remake_path(current, visited):
+def remake_path(current, explored):
     path = []
     while current:
         path.append(current)
-        current = visited[current]
+        current = explored[current]
     return path[::-1]
 
 def bfs(start, exit_point):
